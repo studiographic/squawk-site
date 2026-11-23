@@ -65,10 +65,12 @@ typography:
     letterSpacing: "0.06em"
 rounded:
   sm: "6px"
+  chip: "10px"
   md: "14px"
   button: "16px"
   card: "20px"
   screen: "26px"
+  device-screen: "31px"
   device: "38px"
   pill: "50%"
 spacing:
@@ -204,7 +206,7 @@ Depth is paper on a stock edge: every ivory card and the boarding button sits on
 
 ## Shapes
 
-Generously rounded, toy-like corners: 20px on cards, 16px on the button, 26px on screenshot frames, 38px outer / 31px inner on the phone. The ticket is punched with two 13px semicircular notches at the left and right edge, positioned by script exactly on the tear line. Tear lines are 2px dashed paper-line. Rule numbers sit in 34px circles.
+Generously rounded, toy-like corners: 20px on cards, 16px on the button, 10px on the XPDR chip, 26px on screenshot frames, 38px outer / 31px inner on the phone. The ticket is punched with two 13px semicircular notches at the left and right edge, positioned by script exactly on the tear line. Tear lines are 2px dashed paper-line. Rule numbers sit in 34px circles.
 
 ## Components
 
