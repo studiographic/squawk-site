@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Squawk · A calm logic puzzle about air traffic</title>
+<meta name="description" content="You're the air traffic controller. Fit domino tiles onto the board so every plane has a clear path to the edge. 57 puzzles, each with exactly one answer. Coming soon to iPhone and Android.">
+<meta name="theme-color" content="#2671e0">
+<meta property="og:title" content="Squawk · Clear the skies">
+<meta property="og:description" content="A calm logic puzzle about air traffic. Coming soon to iPhone and Android.">
+<meta property="og:image" content="https://squawk.studiographic.ca/media/og.jpg">
+<meta property="og:url" content="https://squawk.studiographic.ca/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="media/favicon.png">
+<link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+<link rel="preload" href="fonts/Fredoka.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="style.css?v=11">
+<script src="app.js" defer></script>
+<!-- Google Analytics (one property for studiographic.ca and its subdomains) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8T5HVX3NTQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8T5HVX3NTQ');
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="plane" viewBox="0 0 24 24"><path d="M12 1.6c.9 0 1.4.9 1.4 2.2v5.1l8 4.6v2.2l-8-2.4v4.9l2.4 1.8v1.8L12 21l-3.8.8V20l2.4-1.8v-4.9l-8 2.4v-2.2l8-4.6V3.8c0-1.3.5-2.2 1.4-2.2z"/></symbol>
+</svg>
+
+<main>
+  <section class="hero" aria-labelledby="title">
+    <div class="hero-copy">
+      <h1 id="title">Squawk</h1>
+      <p class="xpdr" aria-label="Transponder 1200"><span class="xpdr-k">XPDR</span><span class="xpdr-code">1200</span></p>
+      <p class="lede">You're in the tower. Fit the tiles, clear&nbsp;the&nbsp;skies.</p>
+    </div>
+
+    <figure class="phone">
+      <video class="phone-screen" src="media/preview.mp4?v=3" poster="media/poster.jpg?v=3" width="592" height="1284" autoplay muted loop playsinline preload="metadata" aria-label="Squawk being played: tiles dragged onto the board until every plane has a clear path"></video>
+    </figure>
+
+    <div class="ticket-wrap">
+    <article class="ticket" aria-labelledby="ticket-title">
+      <header class="ticket-head">
+        <h2 id="ticket-title">Squawk Air · Boarding pass</h2>
+        <span>XPDR 1200</span>
+      </header>
+
+      <div class="route">
+        <div>
+          <span class="k">From</span>
+          <b class="city">You</b>
+        </div>
+        <svg class="route-plane" aria-hidden="true"><use href="#plane"/></svg>
+        <div class="to">
+          <span class="k">To</span>
+          <b class="city">iPhone<br>Android</b>
+        </div>
+      </div>
+
+      <p class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 232 70" width="232" height="70">
+          <defs>
+            <filter id="ink" x="-5%" y="-10%" width="110%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" result="speck"/>
+              <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4.5 3.9" result="holes"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9" result="rough"/>
+              <feDisplacementMap in="SourceGraphic" in2="rough" scale="3.5" xChannelSelector="R" yChannelSelector="G" result="wobble"/>
+              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="1" seed="2" result="pressure"/>
+              <feColorMatrix in="pressure" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.2 0.6" result="weight"/>
+              <feComposite in="wobble" in2="holes" operator="in" result="speckled"/>
+              <feComposite in="speckled" in2="weight" operator="in"/>
+            </filter>
+          </defs>
+          <g filter="url(#ink)" fill="none" stroke="#c8352c">
+            <rect x="5" y="5" width="222" height="60" rx="9" stroke-width="4.5"/>
+            <rect x="12" y="12" width="208" height="46" rx="5" stroke-width="1.8"/>
+            <text x="116" y="45" text-anchor="middle" fill="#c8352c" stroke="none" font-family="Fredoka, sans-serif" font-weight="700" font-size="27" letter-spacing="1.5">COMING SOON</text>
+          </g>
+        </svg>
+      </p>
+
+      <dl class="facts">
+        <div><dt>Puzzles</dt><dd>57</dd></div>
+        <div><dt>Airspace</dt><dd>6 tiers</dd></div>
+        <div><dt>Answers</dt><dd>1 each</dd></div>
+        <div><dt>Gate</dt><dd>Soon</dd></div>
+      </dl>
+
+      <div class="stub">
+        <a class="board-btn" href="mailto:squawk@studiographic.ca?subject=Tell%20me%20when%20Squawk%20lands">Tell me when it lands</a>
+        <p>Squawk is coming to the App Store and Google Play. Send a note and we'll write back on launch day.</p>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="rules" aria-labelledby="rules-title">
+    <div class="rules-card">
+    <header class="rules-head">
+      <h2 id="rules-title">Flight rules</h2>
+    </header>
+    <p class="rules-lede">Every plane needs a clear path to the edge of the board. Green paths are clear; red ones are blocked.</p>
+    <ol>
+      <li>
+        <img src="media/howto1.webp?v=2" width="600" height="402" loading="lazy" alt="A small board with three dominoes placed: a locked tower tile, and two planes whose paths run green to the edge">
+        <div><h3>Fill the board</h3><p>Drag every tile onto the board until it's full, and tap a tile to turn it. Drag one off the board to send it back. Locked tiles stay put.</p></div>
+      </li>
+      <li>
+        <img src="media/howto2.webp?v=2" width="600" height="290" loading="lazy" alt="One plane with open sky ahead and a green path; another at the board's edge pointing straight off it, marked with a red cross">
+        <div><h3>Open sky ahead</h3><p>Every plane needs open sky in the square right in front of it: a square with no plane or tower. So a plane can never point straight off the board.</p></div>
+      </li>
+      <li>
+        <img src="media/howto3.webp?v=2" width="600" height="295" loading="lazy" alt="Two planes facing each other with red paths and crosses, and a plane whose path runs into the tower">
+        <div><h3>Keep every path clear</h3><p>A plane's path runs straight ahead all the way to the edge. Nothing may block it: no other plane, and never the tower.</p></div>
+      </li>
+      <li>
+        <img src="media/howto4.webp?v=2" width="600" height="515" loading="lazy" alt="Two planes pointing diagonally, their green paths crossing the board corner to corner">
+        <div><h3>Corners count too</h3><p>Some planes point diagonally. Their path runs on the diagonal all the way to the edge, with the same rules.</p></div>
+      </li>
+    </ol>
+    <p class="rules-foot">Every puzzle has exactly one answer. Stuck? <b>Paths</b> shows every route, green for clear and red for blocked.</p>
+    </div>
+  </section>
+
+  <section class="screens" aria-labelledby="screens-title">
+    <h2 id="screens-title">Earn your stamps</h2>
+    <p class="screens-lede">Six tiers of airspace, from a tiny 4×4 tower to a 6×7 storm. Every landing gets a boarding pass, every level a visa, and stars unlock new planes and skies in the Hangar.</p>
+    <ul>
+      <li>
+        <img src="media/03_storm.jpg" width="600" height="1290" loading="lazy" alt="Level 57, Storm, a full 6 by 7 board with every path shown in green">
+        <p>Storm, 6×7: the last airspace</p>
+      </li>
+      <li>
+        <img src="media/04_win.jpg" width="600" height="1290" loading="lazy" alt="A boarding pass stamped Arrived with three gold stars and a rank of S++">
+        <p>A boarding pass for every landing</p>
+      </li>
+      <li>
+        <img src="media/05_passport.jpg" width="600" height="1290" loading="lazy" alt="The passport open at the Corridor page, with visa stamps for the levels flown so far">
+        <p>Fill your passport, one visa at a time</p>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <img src="media/icon-192.png" width="56" height="56" alt="">
+  <p><b>Squawk</b> is made by <a href="https://studiographic.ca/">Studiographic</a>.</p>
+  <p><a href="mailto:squawk@studiographic.ca">squawk@studiographic.ca</a></p>
+  <p class="foot-xpdr" aria-label="Transponder 1200">XPDR <span>1200</span></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,428 @@
+@font-face {
+  font-family: "Fredoka";
+  src: url("fonts/Fredoka.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono.ttf") format("truetype");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+:root {
+  --sky: #2671e0;
+  --sky-glow: #3b8af7;
+  --deep: #1a4fa3;
+  --night: #0f1623;
+  --night-deep: #0a101b;
+  --slab: #1c2638;
+  --ivory: #f7f6f2;
+  --ivory-edge: #d6d9de;
+  --paper-ink: #2b3442;
+  --paper-dim: #56627a;
+  --paper-line: #c9cfd8;
+  --blue-ink: #1f66d1;
+  --text: #ffffff;
+  --text-dim: #a6b2c6;
+  --gold: #ffcc33;
+  --stamp-red: #c8352c;
+
+  --word: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --code: "JetBrains Mono", ui-monospace, monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(18px, 5vw, 64px);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--slab) var(--night); }
+body {
+  margin: 0;
+  font-family: var(--word);
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--text);
+  background:
+    radial-gradient(rgba(128, 184, 255, 0.07) 1.4px, transparent 1.5px) 0 0 / 22px 22px,
+    var(--night);
+}
+::selection { background: var(--gold); color: var(--night); }
+h1, h2, h3, p, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1.5px; }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: 6px; }
+
+/* ---------- Hero: sky over the radar, phone, ticket ---------- */
+
+.hero {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding: clamp(40px, 7vh, 72px) var(--gutter) clamp(56px, 9vh, 96px);
+  background:
+    radial-gradient(circle at 50% 46%, transparent 0 22%, rgba(160, 200, 255, 0.10) 22.1% 22.3%, transparent 22.4% 38%, rgba(160, 200, 255, 0.08) 38.1% 38.3%, transparent 38.4% 56%, rgba(160, 200, 255, 0.06) 56.1% 56.3%, transparent 56.4%),
+    radial-gradient(rgba(128, 184, 255, 0.10) 1.4px, transparent 1.5px) 0 0 / 22px 22px,
+    linear-gradient(180deg, var(--sky) 0%, var(--deep) 42%, var(--night) 78%);
+  overflow: hidden;
+}
+
+.hero-copy { text-align: center; max-width: 30ch; }
+h1 {
+  font-size: clamp(3.75rem, 2.6rem + 5vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-shadow: 0 3px 0 rgba(10, 30, 80, 0.25);
+}
+.lede {
+  margin-top: 14px;
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.phone {
+  margin-top: clamp(28px, 5vh, 44px);
+  width: min(270px, 68vw);
+  aspect-ratio: 592 / 1284;
+  padding: 7px;
+  border-radius: 38px;
+  background: linear-gradient(160deg, #2a3650, var(--night-deep) 40%);
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.08) inset, 0 30px 60px -10px rgba(2, 6, 16, 0.6);
+}
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 31px;
+  background: var(--night);
+}
+
+/* The ticket: the same Squawk Air boarding pass the game hands you after a win */
+.ticket-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 460px);
+  margin-top: -72px;
+  filter: drop-shadow(0 4px 0 var(--ivory-edge)) drop-shadow(0 22px 22px rgba(2, 6, 16, 0.45));
+}
+.ticket {
+  --notch-y: 62%;
+  position: relative;
+  padding: 20px 22px 22px;
+  color: var(--paper-ink);
+  background: var(--ivory);
+  border-radius: 20px;
+  -webkit-mask: radial-gradient(circle 13px at 0 var(--notch-y), transparent 98%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 13px at 100% var(--notch-y), transparent 98%, #000) right / 51% 100% no-repeat;
+          mask: radial-gradient(circle 13px at 0 var(--notch-y), transparent 98%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 13px at 100% var(--notch-y), transparent 98%, #000) right / 51% 100% no-repeat;
+}
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  white-space: nowrap;
+  font-family: var(--code);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue-ink);
+}
+.ticket-head h2 { font: inherit; }
+.ticket-head span { color: var(--paper-dim); }
+
+.route {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 12px;
+  margin-top: 16px;
+}
+.k, .facts dt {
+  display: block;
+  font-family: var(--code);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+.city {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--blue-ink);
+}
+.to { text-align: right; }
+.to .city { color: var(--paper-ink); }
+.route-plane {
+  justify-self: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+  fill: var(--paper-ink);
+  transform: rotate(90deg);
+}
+
+.stamp {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 -4px;
+  pointer-events: none;
+}
+.stamp svg {
+  display: block;
+  width: 210px;
+  height: auto;
+  overflow: visible;
+  transform: rotate(-9deg);
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 14px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 2px dashed var(--paper-line);
+}
+.facts dd {
+  margin-top: 2px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--paper-ink);
+}
+@media (min-width: 420px) {
+  .facts { grid-template-columns: repeat(4, auto); justify-content: space-between; }
+}
+
+.stub { margin-top: 20px; }
+.board-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 12px 20px;
+  border-radius: 16px;
+  background: var(--blue-ink);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #154a9c, 0 8px 14px -6px rgba(15, 22, 35, 0.35);
+  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background-color 220ms var(--ease);
+}
+.board-btn:hover { background: #2a73e0; }
+.board-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #154a9c, 0 3px 8px -6px rgba(15, 22, 35, 0.35); }
+.board-btn:focus-visible { outline-color: var(--blue-ink); }
+.stub p {
+  margin-top: 12px;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--paper-dim);
+  text-wrap: pretty;
+}
+
+/* ---------- Flight rules ---------- */
+
+.rules, .screens {
+  padding: clamp(64px, 10vh, 112px) var(--gutter) 0;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.rules h2, .screens h2 {
+  font-size: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.rules-lede, .screens-lede {
+  margin-top: 14px;
+  max-width: 44ch;
+  font-size: 1.1875rem;
+  color: var(--text-dim);
+  text-wrap: pretty;
+}
+
+/* The flight rules ride on the same ivory stock as the ticket */
+.rules-card {
+  max-width: 920px;
+  padding: clamp(22px, 4vw, 40px);
+  border-radius: 20px;
+  background: var(--ivory);
+  color: var(--paper-ink);
+  box-shadow: 0 4px 0 var(--ivory-edge), 0 22px 40px -16px rgba(2, 6, 16, 0.55);
+}
+.rules-card { text-align: center; }
+.rules-head {
+  display: flex;
+  justify-content: center;
+}
+.rules-card .rules-lede { margin-inline: auto; color: var(--paper-dim); }
+.rules ol {
+  list-style: none;
+  counter-reset: rule;
+  display: grid;
+  margin-top: 24px;
+  border-top: 2px dashed var(--paper-line);
+}
+.rules li {
+  counter-increment: rule;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  justify-items: center;
+  align-content: start;
+  row-gap: 12px;
+  padding: 22px 0 24px;
+  border-bottom: 2px dashed var(--paper-line);
+}
+.rules li::before {
+  content: counter(rule);
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--blue-ink);
+  color: #fff;
+  font-family: var(--code);
+  font-weight: 700;
+  font-size: 1rem;
+}
+/* Every board sits in the same size box, so titles line up across a row */
+.rules li img {
+  width: 100%;
+  max-width: 300px;
+  height: 180px;
+  object-fit: contain;
+  object-position: center;
+}
+.rules li div { max-width: 36ch; }
+.rules h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.2; color: var(--paper-ink); }
+.rules li p { margin-top: 6px; color: var(--paper-dim); font-size: 1rem; text-wrap: pretty; }
+.rules-foot { margin: 20px auto 0; max-width: 56ch; color: var(--paper-dim); }
+.rules-foot b { color: var(--blue-ink); font-weight: 600; }
+
+/* ---------- Screens ---------- */
+
+.screens ul {
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(66vw, 260px);
+  gap: 18px;
+  margin: 32px calc(var(--gutter) * -1) 0;
+  padding: 0 var(--gutter) 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+.screens ul::-webkit-scrollbar { display: none; }
+.screens li { scroll-snap-align: start; }
+.screens img {
+  width: 100%;
+  border-radius: 26px;
+  border: 6px solid var(--night-deep);
+  box-shadow: 0 18px 36px -12px rgba(0, 0, 0, 0.6);
+}
+.screens li p { margin-top: 12px; font-weight: 600; text-wrap: balance; }
+
+/* ---------- Footer ---------- */
+
+.foot {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  margin-top: clamp(72px, 12vh, 128px);
+  padding: 40px var(--gutter) calc(40px + env(safe-area-inset-bottom));
+  text-align: center;
+  color: var(--text-dim);
+  border-top: 1px solid var(--slab);
+}
+.foot img { border-radius: 14px; margin-bottom: 8px; }
+.foot b { color: var(--text); font-weight: 600; }
+.foot a { color: var(--text); }
+
+/* ---------- Wider screens: phone left, ticket right ---------- */
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: auto minmax(0, 460px);
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+    align-items: start;
+    column-gap: clamp(48px, 7vw, 112px);
+    padding-top: clamp(56px, 9vh, 96px);
+  }
+  .phone { grid-column: 1; grid-row: 1 / 3; margin-top: 0; width: min(330px, 30vw); }
+  .hero-copy { grid-column: 2; justify-self: center; text-align: center; align-self: end; }
+  .ticket-wrap { grid-column: 2; margin-top: 36px; }
+
+  .rules ol { grid-template-columns: 1fr 1fr; column-gap: 40px; }
+  .rules li img { height: 210px; max-width: 340px; }
+
+  .screens ul { grid-auto-flow: initial; grid-template-columns: repeat(3, 1fr); max-width: 940px; margin: 40px auto 0; padding: 0; overflow: visible; }
+}
+
+/* ---------- Motion: the stamp thumps down once ---------- */
+
+.js .ticket.pre .stamp svg { opacity: 0; transform: rotate(-16deg) scale(1.7); }
+.js .ticket.stamped .stamp svg {
+  animation: thump 520ms var(--ease) both;
+}
+@keyframes thump {
+  0%   { opacity: 0; transform: rotate(-16deg) scale(1.7); filter: blur(2px); }
+  55%  { opacity: 0.95; transform: rotate(-8deg) scale(0.96); filter: blur(0); }
+  100% { opacity: 0.88; transform: rotate(-9deg) scale(1); }
+}
+.js .ticket.stamped { animation: jolt 380ms 260ms var(--ease) both; }
+@keyframes jolt {
+  0% { translate: 0 0; } 30% { translate: 0 3px; } 100% { translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .ticket.pre .stamp svg { opacity: 0.88; transform: rotate(-9deg); }
+  .js .ticket.stamped, .js .ticket.stamped .stamp svg { animation: none; }
+  .board-btn { transition: none; }
+}
+
+/* ---------- Everything reads centered ---------- */
+.stub p, .facts div { text-align: center; }
+.screens { text-align: center; }
+.screens-lede { margin-inline: auto; }
+.rules-card { margin-inline: auto; }
+
+/* Transponder readout under the title, as on the game's title screen */
+.xpdr {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-top: 16px;
+  padding: 7px 14px;
+  border-radius: 10px;
+  background: rgba(10, 16, 27, 0.55);
+  font-family: var(--code);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.xpdr-k { color: var(--text-dim); letter-spacing: 0.08em; margin-right: -0.08em; }
+/* Wide tracking leaves a gap after the last digit: pull it back so the chip stays centered */
+.xpdr-code { color: var(--gold); letter-spacing: 0.4em; margin-right: -0.4em; }
+.lede { margin-top: 14px; }
+.foot-xpdr { white-space: nowrap; margin-top: 10px; font-family: var(--code); font-size: 0.8125rem; letter-spacing: 0.08em; }
+.foot-xpdr span { color: var(--gold); font-weight: 700; letter-spacing: 0.4em; margin-right: -0.4em; }
