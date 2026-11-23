@@ -107,7 +107,7 @@ h1 {
   position: relative;
   z-index: 1;
   width: min(100%, 460px);
-  margin-top: -72px;
+  margin-top: clamp(32px, 5vh, 44px);
   filter: drop-shadow(0 4px 0 var(--ivory-edge)) drop-shadow(0 22px 22px rgba(2, 6, 16, 0.45));
 }
 .ticket {
@@ -163,8 +163,13 @@ h1 {
 }
 .to { text-align: right; }
 .to .city { color: var(--paper-ink); }
+.route-mid {
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
 .route-plane {
-  justify-self: center;
+  visibility: hidden; /* the stamp takes the plane's place */
   width: 30px;
   height: 30px;
   margin-bottom: 6px;
@@ -173,14 +178,16 @@ h1 {
 }
 
 .stamp {
-  display: flex;
-  justify-content: center;
-  margin: 18px 0 -4px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: calc(100% - 21px);
+  translate: -50% -50%;
   pointer-events: none;
 }
 .stamp svg {
   display: block;
-  width: 210px;
+  width: clamp(132px, 36vw, 172px);
   height: auto;
   overflow: visible;
   transform: rotate(-9deg);

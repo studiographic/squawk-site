@@ -187,7 +187,7 @@ A two-world palette: saturated sky and night navy for the ground, warm ivory and
 
 ## Layout
 
-Single column, mobile first, with a fluid gutter (clamp 18px to 64px). On phones the hero stacks wordmark, phone frame (min(270px, 68vw)) and the ticket, which overlaps the phone by 72px so its top edge rises into the first screen. At 900px and up the hero becomes two columns: phone left (min(330px, 30vw)) spanning both rows, wordmark and ticket stacked right in a 460px column, gap clamp 48px to 112px.
+Single column, mobile first, with a fluid gutter (clamp 18px to 64px). On phones the hero stacks wordmark, phone frame (min(270px, 68vw)) and the ticket, which sits clear of the phone (gap clamp 32px to 44px) so the preview is never covered. The COMING SOON stamp takes the route plane's place between FROM and TO (the plane is hidden under it), and may overlap the city names a little on phones like a real stamp. At 900px and up the hero becomes two columns: phone left (min(330px, 30vw)) spanning both rows, wordmark and ticket stacked right in a 460px column, gap clamp 48px to 112px.
 
 Sections below the hero sit in a 1120px container with clamp 64px to 112px top padding. The rules card caps at 920px; its four rules go two-up at 900px. Screenshots are a horizontal scroll-snap strip (columns min(66vw, 260px)) on narrow screens and a three-column grid capped at 940px on wide ones. Ticket facts are a 2x2 grid below 420px and a single spaced row above.
 

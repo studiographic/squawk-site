@@ -54,34 +54,35 @@
           <span class="k">From</span>
           <b class="city">You</b>
         </div>
-        <svg class="route-plane" aria-hidden="true"><use href="#plane"/></svg>
+        <div class="route-mid">
+          <svg class="route-plane" aria-hidden="true"><use href="#plane"/></svg>
+          <p class="stamp" aria-hidden="true">
+            <svg viewBox="0 0 232 70" width="232" height="70">
+              <defs>
+                <filter id="ink" x="-5%" y="-10%" width="110%" height="120%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" result="speck"/>
+                  <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4.5 3.9" result="holes"/>
+                  <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9" result="rough"/>
+                  <feDisplacementMap in="SourceGraphic" in2="rough" scale="3.5" xChannelSelector="R" yChannelSelector="G" result="wobble"/>
+                  <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="1" seed="2" result="pressure"/>
+                  <feColorMatrix in="pressure" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.2 0.6" result="weight"/>
+                  <feComposite in="wobble" in2="holes" operator="in" result="speckled"/>
+                  <feComposite in="speckled" in2="weight" operator="in"/>
+                </filter>
+              </defs>
+              <g filter="url(#ink)" fill="none" stroke="#c8352c">
+                <rect x="5" y="5" width="222" height="60" rx="9" stroke-width="4.5"/>
+                <rect x="12" y="12" width="208" height="46" rx="5" stroke-width="1.8"/>
+                <text x="116" y="45" text-anchor="middle" fill="#c8352c" stroke="none" font-family="Fredoka, sans-serif" font-weight="700" font-size="27" letter-spacing="1.5">COMING SOON</text>
+              </g>
+            </svg>
+          </p>
+        </div>
         <div class="to">
           <span class="k">To</span>
           <b class="city">iPhone<br>Android</b>
         </div>
       </div>
-
-      <p class="stamp" aria-hidden="true">
-        <svg viewBox="0 0 232 70" width="232" height="70">
-          <defs>
-            <filter id="ink" x="-5%" y="-10%" width="110%" height="120%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" result="speck"/>
-              <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4.5 3.9" result="holes"/>
-              <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9" result="rough"/>
-              <feDisplacementMap in="SourceGraphic" in2="rough" scale="3.5" xChannelSelector="R" yChannelSelector="G" result="wobble"/>
-              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="1" seed="2" result="pressure"/>
-              <feColorMatrix in="pressure" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.2 0.6" result="weight"/>
-              <feComposite in="wobble" in2="holes" operator="in" result="speckled"/>
-              <feComposite in="speckled" in2="weight" operator="in"/>
-            </filter>
-          </defs>
-          <g filter="url(#ink)" fill="none" stroke="#c8352c">
-            <rect x="5" y="5" width="222" height="60" rx="9" stroke-width="4.5"/>
-            <rect x="12" y="12" width="208" height="46" rx="5" stroke-width="1.8"/>
-            <text x="116" y="45" text-anchor="middle" fill="#c8352c" stroke="none" font-family="Fredoka, sans-serif" font-weight="700" font-size="27" letter-spacing="1.5">COMING SOON</text>
-          </g>
-        </svg>
-      </p>
 
       <dl class="facts">
         <div><dt>Puzzles</dt><dd>57</dd></div>
