@@ -244,18 +244,18 @@ h1 {
 
 /* ---------- Flight rules ---------- */
 
-.rules, .screens {
+.rules, .screens, .why {
   padding: clamp(64px, 10vh, 112px) var(--gutter) 0;
   max-width: 1120px;
   margin: 0 auto;
 }
-.rules h2, .screens h2 {
+.rules h2, .screens h2, .why h2 {
   font-size: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.01em;
 }
-.rules-lede, .screens-lede {
+.rules-lede, .screens-lede, .why-text {
   margin-top: 14px;
   max-width: 44ch;
   font-size: 1.1875rem;
@@ -409,7 +409,8 @@ h1 {
 
 /* ---------- Everything reads centered ---------- */
 .stub p, .facts div { text-align: center; }
-.screens { text-align: center; }
+.screens, .why { text-align: center; }
+.why-text { max-width: 52ch; margin-inline: auto; line-height: 1.55; }
 .screens-lede { margin-inline: auto; }
 .rules-card { margin-inline: auto; }
 
@@ -435,3 +436,49 @@ h1 {
 .foot-xpdr span { color: var(--gold); font-weight: 700; letter-spacing: 0.4em; margin-right: -0.4em; }
 @media (min-width: 360px) { .nw { white-space: nowrap; } }
 
+/* ---------- Why Squawk: a few contacts on the scope ---------- */
+.why { position: relative; isolation: isolate; padding-bottom: clamp(36px, 6vh, 64px); }
+.why-blips { position: absolute; inset: clamp(24px, 4vh, 48px) var(--gutter) 0; z-index: -1; pointer-events: none; }
+.blip {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: #80b8ff;
+  color: #80b8ff;
+  box-shadow: 0 0 10px rgba(128, 184, 255, 0.55);
+}
+.blip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  animation: ping 4s var(--d, 0s) infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+.blip-gold { background: var(--gold); color: var(--gold); box-shadow: 0 0 10px rgba(255, 204, 51, 0.5); }
+.blip-faint { opacity: 0.5; }
+.blip-tag {
+  position: absolute;
+  left: 12px;
+  top: -16px;
+  font-family: var(--code);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  opacity: 0.85;
+}
+@keyframes ping {
+  0%   { transform: scale(1); opacity: 0.8; }
+  70%, 100% { transform: scale(5.5); opacity: 0; }
+}
+@media (min-width: 900px) {
+  .blip { left: var(--xw, var(--x)); top: var(--yw, var(--y)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blip::after { animation: none; opacity: 0; }
+}
