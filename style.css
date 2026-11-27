@@ -482,3 +482,55 @@ h1 {
 @media (prefers-reduced-motion: reduce) {
   .blip::after { animation: none; opacity: 0; }
 }
+
+/* ---------- Support and privacy: one ivory card of plain reading ---------- */
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(28px, 6vh, 56px) var(--gutter) 0;
+}
+.doc-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.doc-back img { border-radius: 10px; }
+.doc-back:hover span { text-decoration: underline; }
+.doc-card {
+  margin-top: clamp(20px, 4vh, 36px);
+  padding: clamp(22px, 4vw, 40px);
+  border-radius: 20px;
+  background: var(--ivory);
+  color: var(--paper-ink);
+  box-shadow: 0 4px 0 var(--ivory-edge), 0 22px 40px -16px rgba(2, 6, 16, 0.55);
+}
+.doc-head { padding-bottom: 18px; border-bottom: 2px dashed var(--paper-line); }
+.doc-kicker, .doc-date {
+  font-family: var(--code);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+.doc-kicker { color: var(--blue-ink); }
+.doc-card h1 {
+  margin-top: 8px;
+  font-size: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-shadow: none;
+}
+.doc-date { margin-top: 12px; }
+.doc-lede { margin-top: 20px; font-size: 1.1875rem; text-wrap: pretty; }
+.doc-card section { margin-top: 26px; }
+.doc-card h2 { font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
+.doc-card section p, .doc-card ul { margin-top: 8px; max-width: 62ch; color: var(--paper-ink); text-wrap: pretty; }
+.doc-card ul { padding-left: 1.2em; }
+.doc-card li + li { margin-top: 6px; }
+.doc-card b { font-weight: 600; }
+.doc-card a { color: var(--blue-ink); }
+.doc-card a:focus-visible { outline-color: var(--blue-ink); }
